@@ -53,9 +53,9 @@
 }
 
 .blog-preview {
-  width: 1000px;
-  padding: 20px;
-  margin-top: 20px;
+  width: 900px;
+  padding: 50px;
+  margin-top: 40px;
   border-style: solid;
   border-width: 1px;
   border-radius: 10px;
@@ -93,3 +93,93 @@
   font-size: 50px;
   margin-bottom: 20px;
 }
+
+.blog-details button {
+  align-self: center;
+  background-color: rgb(156, 13, 161);
+  height: 40px;
+  margin-top: 30px;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 20px;
+  outline: none; 
+}
+
+.blog-details button:hover {
+  box-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.blog-details button:focus {
+  background-color: rgba(255, 255, 255,0.1);
+}
+
+
+.create {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.create form {
+  display: flex;
+  flex-direction: column;
+} 
+
+.create label {
+  font-size: 35px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.create input {
+  height: 50px;
+  width: 800px;
+  border: 1px solid white;
+  border-radius: 10px;
+  outline: none;
+  font-size: 25px;
+  padding-left: 10px; 
+}
+
+.create textarea {
+  height: 200px;
+  border: 1px solid white;
+  border-radius: 10px;
+  outline: none; 
+  resize: none;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 10px; 
+}
+
+.create button {
+  align-self: center;
+  background-color: rgb(156, 13, 161);
+  height: 40px;
+  margin-top: 30px;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-size: 20px;
+  outline: none; 
+}
+
+.create input:hover, .create textarea:hover, .create button:hover {
+  box-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.create input:focus, .create textarea:focus, .create button:focus {
+  background-color: rgba(255, 255, 255,0.1);
+}
+
+.not-found h2 {
+  margin-bottom: 20px;
+}
+
