@@ -6,25 +6,32 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setTimeout(() => {
-            fetch(url)
-                .then(res => {
-                    if(!res.ok) {
-                        throw Error('Não foi possível buscar os dados para esse recurso');
-                    }
-                    return res.json();
-                })
-                .then(data => {
-                    setdata(data);
-                    setIsLoading(false);
-                    setError(null);
-                })
-                .catch(err => {
-                    setIsLoading(false);
-                    setError(err.message);
-                })
-        }, 1000);
+        const abortCont = new AbortController();
+            // setTimeout(() => {
+                fetch(url, { signal: abortCont.signal })
+                    .then(res => {
+                        if(!res.ok) {
+                            throw Error('Não foi possível buscar os dados para esse recurso');
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        setdata(data);
+                        setIsLoading(false);
+                        setError(null);
+                    })
+                    .catch(err => {
+                        if (err.name === "AbortError"){
+                            console.log("fetch aborted")
+                        } else {
+                            setIsLoading(false);
+                            setError(err.message);
+                        }
+                    })
+            // },1000);
+        return () => abortCont.abort();
     }, [url]);
+    
     return { data,isLoading,error }
 }
 
